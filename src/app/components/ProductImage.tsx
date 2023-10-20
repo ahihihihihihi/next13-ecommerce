@@ -8,21 +8,34 @@ type IProps = {
     fill?: boolean
 }
 
-function ProductImage({ product, fill }: IProps) {
+function ProductImage(props: IProps) {
 
     const [loading, setLoading] = useState<boolean>(true)
+    const { fill, product } = props
 
     return (
         <>
             {
                 fill ? (
-                    <Image src={product.image} fill alt={product.title} />
+                    <Image
+                        src={product.image}
+                        fill
+                        alt={product.title}
+                        className={`
+                        object-contain duration-700 ease-in-out group-hover:opacity-75
+                        ${loading ? "scale-100 blur-2xl grayscale" :
+                                "scale-100 blur-0 grayscale-0"
+                            }
+                    `}
+                        onLoadingComplete={() => setLoading(false)}
+                    />
                 ) : (
                     <Image
                         src={product.image}
                         alt={product.title}
-                        width={400}
-                        height={1000}
+                        style={{ height: "250px" }}
+                        height={200}
+                        width={200}
                         className={`
                         object-contain duration-700 ease-in-out group-hover:opacity-75
                         ${loading ? "scale-100 blur-2xl grayscale" :

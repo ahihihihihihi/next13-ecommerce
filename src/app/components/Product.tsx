@@ -1,27 +1,26 @@
 'use client'
 
 import Link from "next/link"
-// import ProductImage from "@/app/components/ProductImage"
+import ProductImage from "@/app/components/ProductImage"
 
 type IProps = {
     product: Product
-    key: string
 }
 
-function Product({ product, key }: IProps) {
+function Product(props: IProps) {
+    const { product } = props
     return (
         <Link
             prefetch={false}
             href={`/product/${product.id}`}
-            key={key}
             className="h-96 flex flex-col p-5 rounded border group hover:scale-105 transition-transform ease-out duration-200"
         >
-            {/* <div>
+            <div style={{ margin: "0 auto" }} className="max-h-64">
                 <ProductImage
                     product={product}
-                    fill
+                    fill={false}
                 />
-            </div> */}
+            </div>
             <div key={`product-${product.id}`} className="font-semibold flex items-center justify-between mt-4 mb-1">
                 <p className="w-44 truncate">{product.title}</p>
                 <p>$ {product.price}</p>
