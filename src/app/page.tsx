@@ -8,7 +8,7 @@ export default async function Home() {
   const res = await fetch('https://fakestoreapi.com/products')
   const products: Product[] = await res.json()
 
-  console.log(products)
+  // console.log(products)
   return (
     <div className='min-h-screen max-w-7xl mx-auto px-8 xl:px-0 mt-48'>
       <section className="flex flex-col space-y-12 pb-44">
