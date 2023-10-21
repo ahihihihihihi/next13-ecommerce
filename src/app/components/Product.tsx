@@ -12,7 +12,7 @@ function Product(props: IProps) {
     return (
         <Link
             prefetch={false}
-            href={`/product/${product.id}`}
+            href={`/modal/product/${product.id}`}
             className="h-96 flex flex-col p-5 rounded border group hover:scale-105 transition-transform ease-out duration-200"
         >
             <div style={{ margin: "0 auto" }} className="max-h-64">
